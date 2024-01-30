@@ -1,0 +1,15 @@
+
+heroku login
+heroku container:login
+
+find image id's
+docker image ls
+
+docker tag image_id1 registry.heroku.com/covid19dashnetherlands/worker
+docker push registry.heroku.com/covid19dashnetherlands/worker
+
+docker tag image_id2 registry.heroku.com/covid19dashnetherlands/web
+docker push registry.heroku.com/covid19dashnetherlands/web
+
+heroku container:release worker --app covid19dashnetherlands
+heroku container:release web --app covid19dashnetherlands

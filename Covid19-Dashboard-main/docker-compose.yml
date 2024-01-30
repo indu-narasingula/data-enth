@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+    scheduler:
+        build: ./backend
+        restart: always
+
+        volumes:
+            - /etc/localtime:/etc/localtime:ro
+            - ./backend/logs:/data/logs
+            - covid:/data/files
+    app:
+        build: ./app
+        restart: always
+        ports: 
+          - 8050:8050
+        depends_on: 
+          - scheduler
+        volumes:
+            - /etc/localtime:/etc/localtime:ro
+            - ./app:/app
+            - covid:/app/files
+
+volumes:
+  covid:

@@ -1,0 +1,11 @@
+dash
+dash_bootstrap_components
+dash_bootstrap_templates
+dash_labs
+plotly
+pandas
+numpy
+requests
+datetime
+gunicorn
+sqlalchemy
